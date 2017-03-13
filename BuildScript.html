@@ -1,19 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>NCS Build System</title>
-	<meta charset="utf-8" />
+    <title>NCS Build System</title>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=1024" />
     <meta name="description" content="This document describes the build system at New Century Software">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/impress-demo.css" rel="stylesheet" />
 </head>
+
 <body class="impress-not-supported">
-<article id="impress">
-	<section id="VSTSBuildDefintion" class="step">
-		
-	</section>
-	<section id="prebuildscript" class="step">
-		
-	</section>
-</article>
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use t he latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    </div>
+    <article id="impress">
+    	<section id="title" data-x="0" data-y="0" data-scale="10">
+    		<h1>Build Process</h1>
+		</section>
+        <section id="VSTSBuildDefintion" class="step slide" data-x="0" data-y="512">
+	        <h2>Build Denition</h2>
+        </section>
+        <section id="buildSteps" class="step" data-x="0" data-y="1024">
+            <h3>Build Steps</h3>
+        </section>
+        <section id="variables" class="step" data-x="0" data-y="1536">
+            <h3>Variables</h3>
+        </section>
+        <section id="prebuildscript" class="step" data-x="1000" data-y="1000" data-rotate="180">
+            <h2>Prebuild Script</h2>
+            <h3>Requirements</h3>
+            <ul>
+            	<li>Set version number</li>
+            	<li>
+            </ul>
+        </section>
+    </article>
+    <div class="hint">
+        <p>Use a spacebar or arrow keys to navigate</p>
+    </div>
+    <script>
+    if ("ontouchstart" in document.documentElement) {
+        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+    }
+    </script>
+    <script src="js/impress.js"></script>
+    <script>
+    impress().init();
+    </script>
 </body>
+
 </html>
