@@ -16,35 +16,173 @@
         <p>For the best experience please use t he latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
     </div>
     <article id="impress">
-    	<section id="title" data-x="0" data-y="0" data-scale="10">
-    		<h1>Build Process</h1>
-		</section>
-        <section id="VSTSBuildDefintion" class="step slide" data-x="0" data-y="512">
-	        <h2>Build Denition</h2>
+        <section id="title" class="step" data-x="0" data-y="0" data-scale="4">
+            <h1>Build Process</h1>
         </section>
-        <section id="buildSteps" class="step" data-x="0" data-y="1024">
-            <h3>Build Steps</h3>
+        <section id="BuildDefintion" class="step" data-x="-3000" data-y="0" data-scale="2">
+            <h1>Build Definition</h1>
+            <p>A build definition contains all the configuration information to automate our build process. Changes are tracked in some behind-the-scenes repository for future reference.
+            <dl>
+                <dt>Build</dt>
+                <dd>Discrete predefined actions for the build agent to execute</dd>
+                <dt>Options</dt>
+                <dd>Some basic options for build configuration.</dd>
+                <dt>Repository</dt>
+                <dd>Locations in source control restored to the build agent. These files end up in a known "Build Sources" directory</dd>
+            </dl>
         </section>
-        <section id="variables" class="step" data-x="0" data-y="1536">
-            <h3>Variables</h3>
+        <section id="BuildDefintion2" class="step" data-x="-3000" data-y="2000" data-scale="2">
+            <dl>
+                <dt>Variables</dt>
+                <dd>Custom key-value pairs for the build definition and environment variables of the build in execution</dd>
+                <dt>Triggers</dt>
+                <dd>Events to automatically start a build</dd>
+                <dt>General</dt>
+                <dd>Metadata and requirements for the build</dd>
+                <dt>Retention</dt>
+                <dd>How long should the build and results stay in the system</dd>
+                <dt>History</dt>
+                <dd>View changes over time to the build definition in JSON format</dd>
+            </dl>
         </section>
-        <section id="prebuildscript" class="step" data-x="1000" data-y="1000" data-rotate="180">
+
+        <section id="BuildDefConventions" class="step" data-x="-3000" data-y="700" data-z="0" data-rotate-x="-90" data-scale="3">
+            <h1>NCS Conventions</h1>
+        </section>
+        <section id="BuildDefConventions-Build" class="step" data-x="-3800" data-y="700" data-z="-500" data-rotate-x="-90" >
+            <h1>Build Steps</h1>
+            <img src="images/Build.PNG" alt="Build Steps" class="buildimg">
+            <p>Generic options on all build steps:</p>
+            <dl>
+                <dt>Enabled</dt>
+                <dd>Should this step run</dd>
+                <dt>Continue on error</dt>
+                <dd>Continue running subsequent steps if this one fails</dd>
+                <dt>Always Run</dt>
+                <dd>If a previous step failed, run this on anyway</dd>
+            </dl>
+        </section>
+        <section id="BuildDefConventions-NuGet" class="step" data-x="-3800" data-y="700" data-z="-1200" data-rotate-x="-90" >
+            <h2>NuGet Restore</h2>
+            <img src="images/NuGet.PNG" alt="NuGet Restore" class="buildimg">
+            <p><em>Restores NuGet packages according to the nuget.config and sln files in the build sources dir.</em> <p/>
+            <dl>
+                <dt>Path to sln or packages.config</dt>
+                <dd>Source dir has folder named ".nuget" with nuget.config inside.</dd>
+                <dt>Path to NuGet.config</dt>
+                <dd>Ensure this path has the correct branch.</dd>
+            </dl>
+        </section>
+        <section id="BuildDefConventions-Script" class="step" data-x="-3800" data-y="700" data-z="-2000" data-rotate-x="-90" >
             <h2>Prebuild Script</h2>
-            <h3>Requirements</h3>
+            <img src="images/Script.PNG" alt="PreBuild Script" class="buildimg">
+            <p><em>Execute PowerShell standard action</em><br/>
+            Modifies files <strong>before</strong> building, like a developer would</p>
+            <dl>
+                <dt>Type</dt>
+                <dd>"file path"</dd>
+                <dt>Script Path</dt>
+                <dd>Script located in Shared Resources. Two scripts exist:
+                <ul>
+                    <li>Full script to modify installer source and download latest good Core build.</li>
+                    <li>Reduced script to build NCS.Core</li>
+                </ul></dd>
+            </dl>
+        </section>
+        <section id="BuildDefConventions-BuildApp" class="step" data-x="-3800" data-y="700" data-z="-3000" data-rotate-x="-90" >
+            <h2>Build Application</h2>
+            <img src="images/BuildApp.PNG" alt="Build Application" class="buildimg">
+            <p><em>VSBuild standard action</em><p>
+            <p>Use Visual Studio to build the specified sln file. Platform and Configuration use variables because Multi-Configuration selects those values over multiple builds.</p>
+            <dl>
+            <dt>Clean</dt>
+            <dd>Removes changes from previous build, if any</dd>
+            </dl>
+        </section>
+        <section id="BuildDefConventions-UnitTest" class="step" data-x="-3800" data-y="700" data-z="-4000" data-rotate-x="-90" >
+            <h2>Unit Tests</h2>
+            <img src="images/UnitTest.PNG" alt="Unit Tests" class="buildimg">
+            <p><em>Unit test standard action.</em> Not all build definitions have unit tests enabled because some solutions don't have unit tests separate from integration tests.</p> 
+            <dl>
+                <dt>Test Assembly</dt>
+                <dd>Pattern to match the test assemblies</dd>
+                <dt>Test Run Title</dt>
+                <dd>Should be the build number variable</dd>
+                <dt>Platform and Configuration</dt>
+                <dd>Set to platform and configuration variables</dd>
+            </dl>
+        </section>
+        <section id="BuildDefConventions-Artifacts" class="step" data-x="-3800" data-y="700" data-z="-5000" data-rotate-x="-90" >
+            <h2>Copy Publish Artifacts</h2>
+            <img src="images/Artifacts.PNG" alt="Copy Publish Artifacts" class="buildimg">
+            <p><em>Copy Publish Artifacts standard action</em></p>
+            <dl>
+                <dt>Copy Root</dt>
+                <dd>Root to search for artifacts. Must be relative to build sources directory</dd>
+                <dt>Contents</dt>
+                <dd>Pattern to find artifacts</dd>
+                <dt>Artifact Name</dt>
+                <dd>Assign a name the coresponds to the configuration (and platform) using variables</dd>
+            </dl>
+        </section>
+
+        <section id="BuildDefConventions-Options" class="step" data-x="-2600" data-y="700" data-z="-1000" data-rotate-x="-90">
+            <h1>Options</h1>
+            <h2>Multi-Configuration</h2>
+            <img src="images/MultiConfig.PNG" alt="Multi-Configuration" class="buildimg">
+            <em>Build multiple configurations on one trigger</em>
+            <dl>
+                <dt>Multipliers</dt>
+                <dd>Comma delimited list of variable names to multiply a build by. Configuration and Platform usually appear here.</dd>
+                <dt>Parallel</dt>
+                <dd>Build different instances of the multipliers across multiple build agents. Checked by default in case we get more build agents.</dd>
+            </dl>
+        </section>
+        <section id="BuildDefConventions-ScriptToken" class="step" data-x="-2600" data-y="700" data-z="-2000" data-rotate-x="-90">
+            <h2>Script Token</h2>
+            <em>Allow Scripts to Sccess OAuth Token</em>
+            <p>PowerShell scripts need this to make REST API calls to VSTS</p>
+        </section>
+        <section id="BuildDefConventions-Repository" class="step" data-x="-2600" data-y="700" data-z="-3000" data-rotate-x="-90">
+            <h1>Repository</h1>
+            <h2>Setup</h2>
+            <img src="images/Repository.PNG" alt="Repository Setup">
+            <p>The configurations above is default and uniform across our build definitions.</p>
+            <dl>
+                <dt>Clean</dt>
+                <dd>When "true" the build will begin by deleting changes and downloading anything not present on the build agent.</dd>
+            </dl>
+        </section>
+        <section id="BuildDefConventions-RepositoryMap" class="step" data-x="-2600" data-y="700" data-z="-4000" data-rotate-x="-90">
+            <h2>Mappings</h2>
+            <img src="images/RepositoryMap.PNG" alt="Repository Setup">
+            <dl>
+                <dt>Type</dt>
+                <dd><strong>Map</strong> will download. <strong>Mask</strong> will prevent download if some ancestor directory is mapped.</dd>
+                <dt>Server Path</dt>
+                <dd>Path in source control</dd>
+                <dt>Local Path</dt>
+                <dd>Path in the build sources directory on the build agent. <strong>Make this directory structure match source control!</strong> Build configurations rely on relative paths.</dd>
+            </dl>
+        </section>
+        <section id="BuildDefConventions-RepositoryCore" class="step" data-x="-2600" data-y="700" data-z="-5000" data-rotate-x="-90">
+            <h3>NCS.Core Mapping Caveat</h3>
+            <img src="images/RepositoryMap.PNG" alt="Repository Setup">
+            <p>NCS.Core is mapped differently. Core binaries are downloaded as artifacts from previous good build. Mapping to empty "temp" folder ensures clean on each application build.</p>
+        </section>
+
+        <section id="PreBuildScript" class="step" data-x="3000" data-y="0" data-rotate="180">
+            <h1>Prebuild Script</h1>
+            <h2>Requirements</h2>
             <ul>
-            	<li>Set version number</li>
-            	<li>
+                <li>Set version number</li>
+                <li>Get latest good build of Core</li>
             </ul>
         </section>
     </article>
     <div class="hint">
         <p>Use a spacebar or arrow keys to navigate</p>
     </div>
-    <script>
-    if ("ontouchstart" in document.documentElement) {
-        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-    }
-    </script>
     <script src="js/impress.js"></script>
     <script>
     impress().init();
