@@ -276,6 +276,7 @@ a:focus {
 
 #title {
     padding: 0;
+    text-align: center;
 }
 
 #title .try {
