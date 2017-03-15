@@ -46,10 +46,10 @@
             </dl>
         </section>
 
-        <section id="BuildDefConventions" class="step" data-x="-3000" data-y="700" data-z="0" data-rotate-x="-90" data-scale="3">
+        <section id="BuildDefConventions" class="step" data-x="-3000" data-y="1000" data-z="0" data-rotate-x="-90" data-scale="3">
             <h1>NCS Conventions</h1>
         </section>
-        <section id="BuildDefConventions-Build" class="step" data-x="-3800" data-y="700" data-z="-500" data-rotate-x="-90" >
+        <section id="BuildDefConventions-Build" class="step" data-x="-3800" data-y="1000" data-z="-500" data-rotate-x="-90" >
             <h1>Build Steps</h1>
             <img src="images/Build.PNG" alt="Build Steps" class="buildimg">
             <p>Generic options on all build steps:</p>
@@ -62,7 +62,7 @@
                 <dd>If a previous step failed, run this on anyway</dd>
             </dl>
         </section>
-        <section id="BuildDefConventions-NuGet" class="step" data-x="-3800" data-y="700" data-z="-1200" data-rotate-x="-90" >
+        <section id="BuildDefConventions-NuGet" class="step" data-x="-3800" data-y="1000" data-z="-1200" data-rotate-x="-90" >
             <h2>NuGet Restore</h2>
             <img src="images/NuGet.PNG" alt="NuGet Restore" class="buildimg">
             <p><em>Restores NuGet packages according to the nuget.config and sln files in the build sources dir.</em> <p/>
@@ -73,7 +73,7 @@
                 <dd>Ensure this path has the correct branch.</dd>
             </dl>
         </section>
-        <section id="BuildDefConventions-Script" class="step" data-x="-3800" data-y="700" data-z="-2000" data-rotate-x="-90" >
+        <section id="BuildDefConventions-Script" class="step" data-x="-3800" data-y="1000" data-z="-2000" data-rotate-x="-90" >
             <h2>Prebuild Script</h2>
             <img src="images/Script.PNG" alt="PreBuild Script" class="buildimg">
             <p><em>Execute PowerShell standard action</em><br/>
@@ -89,7 +89,7 @@
                 </ul></dd>
             </dl>
         </section>
-        <section id="BuildDefConventions-BuildApp" class="step" data-x="-3800" data-y="700" data-z="-3000" data-rotate-x="-90" >
+        <section id="BuildDefConventions-BuildApp" class="step" data-x="-3800" data-y="1000" data-z="-3000" data-rotate-x="-90" >
             <h2>Build Application</h2>
             <img src="images/BuildApp.PNG" alt="Build Application" class="buildimg">
             <p><em>VSBuild standard action</em><p>
@@ -99,7 +99,7 @@
             <dd>Removes changes from previous build, if any</dd>
             </dl>
         </section>
-        <section id="BuildDefConventions-UnitTest" class="step" data-x="-3800" data-y="700" data-z="-4000" data-rotate-x="-90" >
+        <section id="BuildDefConventions-UnitTest" class="step" data-x="-3800" data-y="1000" data-z="-4000" data-rotate-x="-90" >
             <h2>Unit Tests</h2>
             <img src="images/UnitTest.PNG" alt="Unit Tests" class="buildimg">
             <p><em>Unit test standard action.</em> Not all build definitions have unit tests enabled because some solutions don't have unit tests separate from integration tests.</p> 
@@ -112,7 +112,7 @@
                 <dd>Set to platform and configuration variables</dd>
             </dl>
         </section>
-        <section id="BuildDefConventions-Artifacts" class="step" data-x="-3800" data-y="700" data-z="-5000" data-rotate-x="-90" >
+        <section id="BuildDefConventions-Artifacts" class="step" data-x="-3800" data-y="1000" data-z="-5000" data-rotate-x="-90" >
             <h2>Copy Publish Artifacts</h2>
             <img src="images/Artifacts.PNG" alt="Copy Publish Artifacts" class="buildimg">
             <p><em>Copy Publish Artifacts standard action</em></p>
@@ -126,7 +126,7 @@
             </dl>
         </section>
 
-        <section id="BuildDefConventions-Options" class="step" data-x="-2600" data-y="700" data-z="-1000" data-rotate-x="-90">
+        <section id="BuildDefConventions-Options" class="step" data-x="-2600" data-y="1000" data-z="-1000" data-rotate-x="-90">
             <h1>Options</h1>
             <h2>Multi-Configuration</h2>
             <img src="images/MultiConfig.PNG" alt="Multi-Configuration" class="buildimg">
@@ -138,12 +138,12 @@
                 <dd>Build different instances of the multipliers across multiple build agents. Checked by default in case we get more build agents.</dd>
             </dl>
         </section>
-        <section id="BuildDefConventions-ScriptToken" class="step" data-x="-2600" data-y="700" data-z="-2000" data-rotate-x="-90">
+        <section id="BuildDefConventions-ScriptToken" class="step" data-x="-2600" data-y="1000" data-z="-2000" data-rotate-x="-90">
             <h2>Script Token</h2>
             <em>Allow Scripts to Sccess OAuth Token</em>
             <p>PowerShell scripts need this to make REST API calls to VSTS</p>
         </section>
-        <section id="BuildDefConventions-Repository" class="step" data-x="-2600" data-y="700" data-z="-3000" data-rotate-x="-90">
+        <section id="BuildDefConventions-Repository" class="step" data-x="-2600" data-y="1000" data-z="-3000" data-rotate-x="-90">
             <h1>Repository</h1>
             <h2>Setup</h2>
             <img src="images/Repository.PNG" alt="Repository Setup">
@@ -153,7 +153,7 @@
                 <dd>When "true" the build will begin by deleting changes and downloading anything not present on the build agent.</dd>
             </dl>
         </section>
-        <section id="BuildDefConventions-RepositoryMap" class="step" data-x="-2600" data-y="700" data-z="-4000" data-rotate-x="-90">
+        <section id="BuildDefConventions-RepositoryMap" class="step" data-x="-2600" data-y="1000" data-z="-4000" data-rotate-x="-90">
             <h2>Mappings</h2>
             <img src="images/RepositoryMap.PNG" alt="Repository Setup">
             <dl>
@@ -165,13 +165,51 @@
                 <dd>Path in the build sources directory on the build agent. <strong>Make this directory structure match source control!</strong> Build configurations rely on relative paths.</dd>
             </dl>
         </section>
-        <section id="BuildDefConventions-RepositoryCore" class="step" data-x="-2600" data-y="700" data-z="-5000" data-rotate-x="-90">
+        <section id="BuildDefConventions-RepositoryCore" class="step" data-x="-2600" data-y="1000" data-z="-5000" data-rotate-x="-90">
             <h3>NCS.Core Mapping Caveat</h3>
             <img src="images/RepositoryMap.PNG" alt="Repository Setup">
             <p>NCS.Core is mapped differently. Core binaries are downloaded as artifacts from previous good build. Mapping to empty "temp" folder ensures clean on each application build.</p>
         </section>
+        <section id="BuildDefConventions-Variables" class="step" data-x="-2600" data-y="1000" data-z="-6000" data-rotate-x="-90">
+            <h2>Variables</h2>
+            <img src="images/Variables.PNG" alt="variables" class="buildimg">
+            <dl>
+                <dt>BuildConfigurtation, BuildPlatform</dt>
+                <dd>Single string, or comma deilimited list if these variable names appear in Multi-Configuration</dd>
+                <dt>MajorVersion, MinorVersion, Patch</dt>
+                <dd>The version number used in assemblies and installers</dd>
+                <dt>System.Debub</dt>
+                <dd>Increase logging</dd>
+                <dt>Branch</dt>
+                <dd>Variable for quicker cloning</dd>
+            </dl>
+        </section>
+        <section id="BuildDefConventions-Triggers" class="step" data-x="-2600" data-y="1000" data-z="-7000" data-rotate-x="-90">
+            <h2>Triggers</h2>
+            <img src="images/Triggers.PNG" alt="variables" class="buildimg">
+            <p>Continuous integration builds occur when relevant source is checked in</p>
+        </section>
+        <section id="BuildDefConventions-General" class="step" data-x="-2600" data-y="1000" data-z="-8000" data-rotate-x="-90">
+            <h2>General</h2>
+            <img src="images/General.PNG" alt="variables" class="buildimg">
+            <dl>
+                <dt>Agent queue</dt>
+                <dd>The InHouse queue has our build agent.</dd>
+                <dt>Build number format</dt>
+            </dl>
+            <p>$(BuildId)_AlignmentManager_$(Branch)_<br/>$(MajorVersion).$(MinorVersion).$(Patch)-$(SourceVersion)</p>
+            <ul>
+                <li>Unique ID of build</li>
+                <li>App name</li>
+                <li>Branch</li>
+                <li>Version number</li>
+            </ul>
+        </section>
 
-        <section id="Cloning"></section>
+
+        <section id="Cloning" class="step" data-x="2000" data-y="0">
+            <h1>Cloning a Build Definition</h1>
+        </section>
 <!--
         <section id="PreBuildScript" class="step" data-x="3000" data-y="0" data-rotate="180">
             <h1>Prebuild Script</h1>
@@ -182,6 +220,7 @@
             </ul>
         </section>
         -->
+        <section id="overview" class="step" data-x="0" data-y="0" data-scale="10" data-rotate-x="-30" data-rotate-y="20" />
     </article>
     <div class="hint">
         <p>Use a spacebar or arrow keys to navigate</p>
