@@ -329,6 +329,26 @@
                     </ul>
                 </section>
             </div>
+            <div id="ScriptDevStrategy">
+                <section id="ScriptDevBranch" class="step" data-x="0" data-y="-3000" data-z="0" data-rotate-x="-100">
+                    <h1>Branches of the script</h1>
+                    <p>$/Software/Products/Shared Resources/Build Resources/</p>
+                    <ul>
+                        <li><strong>Scripts</strong> : Used for production</li>
+                        <li><strong>Scripts-dev</strong> : Test changes here</li>
+                    </ul>
+                    <br/>
+                </section>
+                <section id="ScriptTestBuildDef" class="step" data-x="0" data-y="-3000" data-z="-1000" data-rotate-x="-100">
+                    <h1>Test it first</h1>
+                    <ul>
+                        <li>Build definition named <strong>Build Script Test</strong></li>
+                        <li>CI triggered by any check in to the dev branch</li>
+                        <li>Builds InTrack Main as a test for current code</li>
+                        <li>Artifacts are files altered by script, not finished InTrack</li>
+                    </ul>
+                </section>
+            </div>
         </div>
     </article>
     <script src="js/impress.js"></script>
