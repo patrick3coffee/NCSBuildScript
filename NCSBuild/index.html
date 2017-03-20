@@ -20,6 +20,60 @@
             <h1>Build Process</h1>
         </section>
         <div id="Agent">
+            <section id="BuildAgentTitle" class="step" data-x="-7000" data-y="0" data-z="1000" data-rotate-x="-90" data-rotate-y="90" data-scale="8">
+                <h1 style="text-align: center;">Build Agent</h1>
+            </section>
+            <section id="Infrastructure" class="step" data-x="-4000" data-y="1000" data-z="1000" data-rotate-x="-90" data-rotate-y="90">
+                <h1>Infrastructure</h1>
+                <dl>
+                    <dt>Server</dt>
+                    <dd>
+                        <ul>
+                            <li>VSTS manages build definitions and queue</li>
+                            <li>Runs in Microsoft's datacenter</li>
+                        </ul>
+                    </dd>
+                    <dt>Agent (recently renamed to Pipeline)</dt>
+                    <dd>
+                        <ul>
+                            <li>Does the work in the queue. Transforms source into final product.</li>
+                            <li>Currently only one, but multiple can exist</li>
+                            <li>Runs on Hyper-V VM named <strong>R2D2</strong></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </section>
+            <section id="Setup" class="step" data-x="-4000" data-y="0" data-z="1000" data-rotate-x="-90" data-rotate-y="90">
+                <h1>Setup</h1>
+                <ul>
+                    <li>Applications
+                        <ul>
+                            <li>Visual Studio</li>
+                            <li>WiX</li>
+                        </ul>
+                    </li>
+                    <li>Code signing certificate available to user account of build service</li>
+                    <li>Agent installer
+                        <br/>
+                        <img src="images/AgentSetup.PNG" alt="Agent Setup">
+                    </li>
+                </ul>
+            </section>
+            <section id="Maintenance" class="step" data-x="-4000" data-y="-1000" data-z="1000" data-rotate-x="-90" data-rotate-y="90">
+                <h1>Maintenance</h1>
+                <p>There's not a lot to do</p>
+                <ul>
+                    <li>Windows and application updates</li>
+                    <li>Replace code signing cert when expired</li>
+                </ul>
+                <p>General procedure</p>
+                <ol>
+                    <li>Disable agent on VSTS agent queue settings</li>
+                    <li>If something is building, wait for that to finish</li>
+                    <li>RDP to agent for maintenance</li>
+                    <li>When agent is ready again, re-enable agent from VSTS</li>
+                </ol>
+            </section>
         </div>
         <div id="BuildDef">
             <section id="BuildDefintionTitle" class="step" data-x="0" data-y="5000" data-z="1000" data-rotate-x="-120" data-rotate-y="180" data-scale="8">
@@ -350,6 +404,11 @@
                 </section>
             </div>
         </div>
+        <!-- <div id="DebuggingABuild">
+            <section id="DebugTitle" class="step" data-x="7000" data-y="0" data-z="1000" data-rotate-x="-90" data-rotate-y="-90" data-scale="8">
+                <h1 style="text-align: center;">Debugging</h1>
+            </section>
+        </div> -->
     </article>
     <script src="js/impress.js"></script>
     <script>
