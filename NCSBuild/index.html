@@ -23,7 +23,7 @@
             <section id="BuildAgentTitle" class="step" data-x="-7000" data-y="0" data-z="1000" data-rotate-x="-90" data-rotate-y="90" data-scale="8">
                 <h1 style="text-align: center;">Build Agent</h1>
             </section>
-            <section id="Infrastructure" class="step" data-x="-4000" data-y="1000" data-z="1000" data-rotate-x="-90" data-rotate-y="90">
+            <section id="Infrastructure" class="step" data-x="-4000" data-y="1000" data-z="1000" data-rotate-z="-90" data-rotate-y="90">
                 <h1>Infrastructure</h1>
                 <dl>
                     <dt>Server</dt>
@@ -404,11 +404,25 @@
                 </section>
             </div>
         </div>
-        <!-- <div id="DebuggingABuild">
-            <section id="DebugTitle" class="step" data-x="7000" data-y="0" data-z="1000" data-rotate-x="-90" data-rotate-y="-90" data-scale="8">
+        <div id="DebuggingABuild">
+            <!--  <section id="Debugging" class="step" data-x="7000" data-y="0" data-z="1000" data-rotate-x="-90" data-rotate-y="-90" data-scale="8">
                 <h1 style="text-align: center;">Debugging</h1>
+            </section>-->
+            <section id="BuildSummary" class="step" data-x="4000" data-y="2000" data-z="1000" data-rotate-x="-90" data-rotate-y="-90">
+                <h1>Build Summary</h1>
+                <p><strong>Start Here!</strong> This summary will narrow it down.</p>
+                <dl>
+                    <dt>Left column</dt>
+                    <dd>Shows each multiplied configuration</dd>
+                    <dt>Issues list</dt>
+                    <dd>Summarized list of build errors and warnings, like Visual Studio</dd>
+                </dl>
             </section>
-        </div> -->
+           <section id="ScriptDebugLog" class="step" data-x="4000" data-y="0" data-z="1000" data-rotate-x="-90" data-rotate-y="-90">
+                <h1>Script Log</h1>
+                <p>If the build failed on a "PreBuild Script", click that step to see the log.</p>
+            </section> 
+        </div>
     </article>
     <script src="js/impress.js"></script>
     <script>
